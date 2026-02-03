@@ -18,7 +18,7 @@ SnapDrift is a lightweight, desktop-based YouTube video downloader built with El
 
 ### For Users (Download .exe)
 1. Go to the [Releases](https://github.com/AquariusSPoolsDev/snapdrift-yt-download/releases) page.
-2. Download the `SnapDrift-Setup-1.1.0.exe` file.
+2. Download the latest exe file.
 3. Run the file to start downloading.
 
 ## How To Use
