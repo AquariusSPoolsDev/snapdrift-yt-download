@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Build and Release outputs
+dist/
+releases/
+
+# Local binaries (Users should download these themselves)
+bin/*.exe
+
+# Logs and Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+builder-debug.yml
+builder-effective-config.yaml

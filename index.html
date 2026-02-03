@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SnapDrift YT-Vid Downloader V1.1</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="beercss/beer.min.css">
+    <script type="module" src="beercss/beer.min.js"></script>
+    <script type="module" src="beercss/material-dynamic-colors.min.js"></script>
+    <style>
+        :root {
+            --primary: #53dbc9;
+            --on-primary: #003731;
+            --background: #191c1b;
+        }
+    </style>
+    <script defer src="renderer.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark">
+    <header class="fill">
+        <nav class="responsive large-margin horizontal-margin vertical-padding">
+            <h6 class="max">SnapDrift YT-Vid Downloader V1.1</h6>
+            <button id="newDownload" class="secondary">
+                <i>refresh</i>
+                <span>New Download</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="responsive large-padding horizontal-padding" style="margin-inline:auto; margin-block:1.5rem;">
+        <div style="margin-block-end:2rem;">
+            <pre><strong>NOTICE:</strong> This tool is capable of downloading YouTube videos (videos, shorts, music). Please use it responsibly and respect copyright.<!--<br><br><strong>NOTICE:</strong> YouTube frequently updates their system. If a download fails, please <a href="http://" target="_blank" class="primary-text"><strong>check for the latest version</strong></a> on GitHub or <a href="" target="_blank" class="primary-text"><strong>open an issue</strong></a> with the video link.--></pre>
+        </div>
+
+        <div class="field label large round fill">
+            <input id="url" type="text">
+            <label>Video URL</label>
+            <output>Paste your video URL here</output>
+
+            <menu id="contextMenu" class="no-wrap">
+                <li type="button" id="pasteOption"><i>content_paste</i> <span>Paste from Clipboard</span></li>
+            </menu>
+        </div>
+
+        <div class="vertical-margin small-margin">
+            <button id="fetch" class="primary extra large-text">Fetch Video</button>
+            <span id="fetchStatus" class="horizontal-margin"></span>
+        </div>
+
+        <hr style="margin-block:2rem;">
+
+        <div id="metaContainer" class="d-none">
+            <article id="metaCard" class="fill vertical-margin">
+                <div class="row">
+                    <img id="thumb" class="primary" src="#"
+                        style="width:12rem; flex-shrink:0; height:auto; aspect-ratio:16/9;">
+                    <div class="max">
+                        <h5 id="title" style="margin-block-end:0.5rem;" class="extra-bold"></h5>
+                        <p style="margin-block:0;"><span id="uploader"></span> • <span id="uploadDate"></span></p>
+                        <p id="duration" style="margin-block:0;margin-block-start:0.25rem;"></p>
+                    </div>
+                </div>
+            </article>
+
+            <div class="vertical-margin large-margin">
+                <div class="row wrap">
+                    <span class="max">Choose Output:</span>
+                    <label class="radio"><input type="radio" name="fmt" value="1080"><span>1080p video</span></label>
+                    <label class="radio"><input type="radio" name="fmt" value="720"><span>720p video</span></label>
+                    <label class="radio"><input type="radio" name="fmt" value="360"><span>360p video</span></label>
+                    <label class="radio"><input type="radio" name="fmt" value="audio"><span>MP3 audio</span></label>
+                </div>
+
+                <div class="large-padding vertical-padding">
+                    <div class="field label large round fill">
+                        <input id="filename" type="text">
+                        <label>Output Filename (Optional)</label>
+                    </div>
+                </div>
+
+                <button id="download" class="extra primary" style="margin-inline-end: 1rem;">
+                    <i>download</i>
+                    <span>Start Download</span>
+                </button>
+
+                <button type="button" id="pickLocation" class="extra fill">
+                    <i>folder_open</i>
+                    <span>Download Location: </span>
+                    <span id="locationPath">Default (Downloads)</span>
+                </button>
+            </div>
+        </div>
+
+        <ul id="downloadsList" class="list large-space border vertical-margin"></ul>
+
+        <template id="progressTemplate">
+            <li class="download-item" style="justify-content:space-between; padding-inline: 0;">
+                <div style="display:flex;gap:1rem;align-items:center;width:60%;overflow:hidden;">
+                    <button class="stop-btn circle large no-margin error" style="flex-shrink: 0;"><i>close</i></button>
+                    <div class="max">
+                        <h6 class="item-title"
+                            style="margin-block-end: 0.25rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                        </h6>
+                        <p class="item-details no-margin small-text">Ready...</p>
+                    </div>
+                </div>
+                <div style="max-width:30%; width:100%; text-align:end">
+                    <progress class="item-progress wavy" value="0" max="100"></progress>
+                    <p class="item-percent no-margin">0%</p>
+                </div>
+            </li>
+        </template>
+
+        <p>SnapDrift YT-Vid Downloader V1.1</p>
+
+    </main>
+
+
+</body>
+
+</html>
