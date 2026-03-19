@@ -30,3 +30,6 @@ SnapDrift is a lightweight, desktop-based YouTube video downloader built with El
 
 ## Troubleshoot
 * **Download Fails Immediately:** Ensure your internet connection is active and the video is not "Private" or "Age Restricted." Please try again later after some time.
+
+## Changelog
+**V1.1.1 (19/03/2026)** - Update yt-dlp file dependency to latest version.
